@@ -114,26 +114,31 @@ public class Main_TESt {
                     "where teachers.ID_teacher=?");
 
             System.out.println("Enter teacher ID");
-            Scanner scc = new Scanner(System.in);
+          try {
+              Scanner scc = new Scanner(System.in);
 
-            int id = scc.nextInt();
-            if (id >= 1 && id <= 4) {
-                ps.setInt(1, id);
 
-                ResultSet rs = ps.executeQuery();
+              int id = scc.nextInt();
+              if (id >= 1 && id <= 4) {
+                  ps.setInt(1, id);
 
-                int n = 0;
-                while (rs.next()) {
-                    if (n == 0) {
-                        System.out.print("ID " + rs.getInt("ID_teacher") + ": Teacher : " + rs.getString("teacher_name") + " " + rs.getString("teacher_surname") + " teaches: " + rs.getString("class_name"));
-                    } else {
-                        System.out.println(" and " + rs.getString("class_name"));
-                    }
-                    n = 1;
-                }
-            }  else {
-            System.out.println("\"Enter Valid number ID from 1-4 \"");
-        }
+                  ResultSet rs = ps.executeQuery();
+
+                  int n = 0;
+                  while (rs.next()) {
+                      if (n == 0) {
+                          System.out.print("ID " + rs.getInt("ID_teacher") + ": Teacher : " + rs.getString("teacher_name") + " " + rs.getString("teacher_surname") + " teaches: " + rs.getString("class_name"));
+                      } else {
+                          System.out.println(" and " + rs.getString("class_name"));
+                      }
+                      n = 1;
+                  }
+              } else {
+                  System.out.println("\"Enter Valid number ID from 1-4 \"");
+              }
+          }catch (Exception e) {
+              System.out.println("Enter numeric value(number ID from 1-4)");
+          }
             connection.close();
 
 
@@ -147,8 +152,9 @@ public class Main_TESt {
 
     public void UserInput() {
         int n = 0;
-        try {
+
             do {
+                try {
                 Scanner user_input = new Scanner(System.in);
                 System.out.println("Enter Your Choice");
                 int x = user_input.nextInt();
@@ -186,13 +192,13 @@ public class Main_TESt {
                     } } else {
                     System.out.println("\"Enter Valid number from 1-5 \"");
                 }
-
+                } catch (Exception e) {
+                    System.out.println("Enter numeric value(number)");
+                }
 
             } while (n == 0);
             System.out.println("Thanks bye");
-        } catch (NumberFormatException e) {
-            System.out.println("Enter numeric value");
-        }
+
     }
 
 
