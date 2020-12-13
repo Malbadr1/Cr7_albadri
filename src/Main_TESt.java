@@ -10,14 +10,7 @@ public class Main_TESt {
 
     Connection connection = null;
 
-    public static void menu() {
-        System.out.println("1. Display all Students");
-        System.out.println("2. Display all Teachers");
-        System.out.println("3. Display all Classes");
-        System.out.println("4. Display all Classes Of Teacher");
-        System.out.println("5. Quit");
 
-    }
 
     public void ShowAllStudents() {
 
@@ -154,6 +147,13 @@ public class Main_TESt {
         int n = 0;
 
             do {
+                System.out.println("+++++++++++++++++++++++++++++++++++"+"\n");
+                System.out.println("1. Display all Students");
+                System.out.println("2. Display all Teachers");
+                System.out.println("3. Display all Classes");
+                System.out.println("4. Display all Classes Of Teacher");
+                System.out.println("5. Quit");
+                System.out.println("++++++++++++++++++++++++++++++++++++"+"\n");
                 try {
                 Scanner user_input = new Scanner(System.in);
                 System.out.println("Enter Your Choice");
@@ -193,7 +193,7 @@ public class Main_TESt {
                     System.out.println("\"Enter Valid number from 1-5 \"");
                 }
                 } catch (Exception e) {
-                    System.out.println("Enter numeric value(number)");
+                    System.out.println("Enter numeric value(number from 1-5)");
                 }
 
             } while (n == 0);
@@ -205,7 +205,6 @@ public class Main_TESt {
     public static void main(String[] args) {
 
         Main_TESt main_teSt = new Main_TESt();
-        main_teSt.menu();
         main_teSt.UserInput();
     }
 
